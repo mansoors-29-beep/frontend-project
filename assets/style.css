@@ -1,0 +1,165 @@
+/* ===== THUNDER GOD THEME — individual program pages ===== */
+:root {
+  --a: #2b6cff; /* electric blue */
+  --b: #6fb8ff; /* bright blue accent */
+  --gold: #f2c94c;
+  --bg: #060810;
+  --c: #0f1420;
+  --t: #f2f2f2;
+  --line: #16233a;
+}
+body.light {
+  --bg: #eef2fa;
+  --c: #fff;
+  --t: #10131c;
+  --line: #cdd9f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font:
+    16px/1.6 system-ui,
+    sans-serif;
+  background:
+    linear-gradient(180deg, #000000d9, #060810f0),
+    url("img/bg-geo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--t);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+.wrap {
+  width: min(720px, 100%);
+  height: fit-content;
+  background: var(--c);
+  border: 1px solid var(--line);
+  padding: 30px;
+  position: relative;
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
+  box-shadow: 0 25px 70px #000a;
+}
+.wrap::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='58,4 22,54 46,54 40,96 80,42 54,42' fill='%23f2c94c' stroke='%232b6cff' stroke-width='3' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.9;
+}
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #fff;
+  -webkit-text-stroke: 1px #0a1a3a;
+  text-shadow:
+    0 0 10px #6fb8ff88,
+    0 3px 0 #0a2a6a;
+}
+p.d {
+  opacity: 0.75;
+  margin: 6px 0 20px;
+  color: #cfdcf5;
+}
+nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+a.btn,
+button {
+  background: linear-gradient(135deg, var(--a), #0a2a6a);
+  color: #fff;
+  border: 0;
+  padding: 10px 18px;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  box-shadow: 0 0 0 1px #6fb8ff55 inset;
+  transition: 0.2s;
+}
+button:hover,
+a.btn:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 18px var(--b);
+}
+input,
+select,
+textarea {
+  background: var(--bg);
+  color: var(--t);
+  border: 1px solid var(--line);
+  padding: 10px;
+  font: inherit;
+  width: 100%;
+  margin: 6px 0;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--a);
+  box-shadow: 0 0 0 2px #2b6cff44;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.out {
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--bg);
+  min-height: 44px;
+  border: 1px dashed var(--line);
+}
+.big {
+  font-size: 44px;
+  text-align: center;
+  color: var(--gold);
+  text-shadow: 0 0 16px #f2c94c66;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.row > * {
+  flex: 1;
+}
+.err {
+  color: #ff6b6b;
+  font-size: 14px;
+}
+li {
+  margin: 6px 0;
+}

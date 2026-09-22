@@ -1,0 +1,325 @@
+/* ===== THUNDER GOD THEME — hub / listing pages ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --red: #2b6cff;
+  --red2: #6fb8ff;
+  --dark: #060810;
+  --panel: #0f1420;
+  --line: #16233a;
+  --web: #ffffff;
+  --gold: #f2c94c;
+}
+
+body.hub {
+  min-height: 100vh;
+  font:
+    16px/1.6 "Segoe UI",
+    system-ui,
+    sans-serif;
+  color: #f2f2f2;
+  background:
+    linear-gradient(180deg, #000000d9, #060810f0),
+    url("img/bg-geo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* decorative storm bolts, original artwork */
+body.hub::before,
+body.hub::after {
+  content: "";
+  position: fixed;
+  width: 640px;
+  height: 640px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='none' stroke='white' stroke-opacity='0.07' stroke-width='1'><circle cx='100' cy='100' r='18'/><circle cx='100' cy='100' r='38'/><circle cx='100' cy='100' r='60'/><circle cx='100' cy='100' r='85'/><circle cx='100' cy='100' r='110'/><polygon points='108,20 78,90 100,90 88,180 150,80 112,80' fill='none' stroke-opacity='0.12'/></g></svg>");
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 0.9;
+  pointer-events: none;
+}
+body.hub::before {
+  top: -220px;
+  left: -220px;
+}
+body.hub::after {
+  bottom: -260px;
+  right: -260px;
+  transform: scaleX(-1);
+}
+
+main {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 52px;
+  position: relative;
+}
+.hero .badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #0f1a30, #05070d 75%);
+  border: 2px solid var(--red);
+  box-shadow:
+    0 0 0 6px #0a0f1a,
+    0 0 30px #2b6cff55;
+  letter-spacing: 1px;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.3;
+  padding: 10px;
+}
+.hero h1 {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 6.4vw, 4.6rem);
+  line-height: 1.05;
+  margin: 16px 0;
+  letter-spacing: 1px;
+  color: #fff;
+  -webkit-text-stroke: 1.5px #0a1a3a;
+  text-shadow:
+    0 0 12px #6fb8ff99,
+    0 4px 0 #0a2a6a,
+    0 8px 24px #00000090;
+}
+.hero p {
+  opacity: 0.75;
+  color: #c9d8f2;
+}
+
+/* lightning mark inside the badge circle, original artwork */
+.hero .badge::before {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: 0 auto 6px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='58,4 22,54 46,54 40,96 80,42 54,42' fill='%23f2c94c' stroke='%232b6cff' stroke-width='3' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.stats {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+.stat-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #0f1a30, #05070d 75%);
+  border: 1px solid #1a3560;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.3;
+  box-shadow: 0 0 0 3px #0a0f1a inset;
+}
+.stat-circle b {
+  display: block;
+  font-size: 22px;
+  color: var(--gold);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+.card {
+  --c: #2b6cff;
+  padding: 34px;
+  background: linear-gradient(160deg, #101828, #080b12);
+  border: 1px solid #1a3560;
+  position: relative;
+  transition: 0.3s;
+  clip-path: polygon(
+    18px 0,
+    100% 0,
+    100% calc(100% - 18px),
+    calc(100% - 18px) 100%,
+    0 100%,
+    0 18px
+  );
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(160deg, transparent 60%, #2b6cff22);
+}
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--c);
+  box-shadow:
+    0 25px 60px #000c,
+    0 0 45px var(--c);
+}
+.ic {
+  font-size: 40px;
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+  background: radial-gradient(circle at 35% 30%, var(--c), #0a1a3a 75%);
+  clip-path: polygon(
+    15% 0,
+    85% 0,
+    100% 15%,
+    100% 85%,
+    85% 100%,
+    15% 100%,
+    0 85%,
+    0 15%
+  );
+  box-shadow: 0 0 20px var(--c);
+}
+.card h2 {
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.card p {
+  opacity: 0.75;
+  margin-bottom: 26px;
+  color: #cfdcf5;
+}
+
+.go {
+  display: inline-block;
+  padding: 12px 28px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--red), #0a2a6a);
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  transition: 0.25s;
+  box-shadow: 0 0 0 1px #6fb8ff55 inset;
+}
+.go:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px var(--red2);
+}
+
+footer {
+  text-align: center;
+  margin-top: 56px;
+  opacity: 0.55;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.site-footer {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  opacity: 1;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.site-footer .footer-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.site-footer .footer-role {
+  font-size: 13px;
+  color: var(--red2);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 4px 0 10px;
+}
+.site-footer .footer-contact {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid #3a3010;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+.site-footer .footer-contact:hover {
+  background: #f2c94c1a;
+  box-shadow: 0 0 14px #f2c94c55;
+}
+
+.list h2 {
+  margin: 34px 0 12px;
+  color: var(--red2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.list ol {
+  display: grid;
+  gap: 9px;
+  padding-left: 0;
+  list-style: none;
+}
+.list li a {
+  display: block;
+  padding: 12px 18px;
+  background: #0a0f1a;
+  border: 1px solid #16233a;
+  color: #f2f2f2;
+  text-decoration: none;
+  transition: 0.2s;
+  position: relative;
+  border-left: 3px solid var(--red);
+}
+.list li a:hover {
+  background: #0a1a3a;
+  transform: translateX(8px);
+  box-shadow: 0 0 20px #2b6cff55;
+}
+.top {
+  margin-bottom: 30px;
+}
+
+pre.code {
+  background: #0009;
+  padding: 18px;
+  border-radius: 6px;
+  overflow: auto;
+  line-height: 1.5;
+  margin-top: 16px;
+  font-size: 14px;
+  border: 1px solid #16233a;
+}
